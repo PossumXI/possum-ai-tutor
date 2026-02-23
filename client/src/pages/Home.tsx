@@ -1,25 +1,44 @@
-import { Button } from "@/components/ui/button";
-import { Loader2 } from "lucide-react";
-import { Streamdown } from 'streamdown';
-
-/**
- * All content in this page are only for example, replace with your own feature implementation
- * When building pages, remember your instructions in Frontend Best Practices, Design Guide and Common Pitfalls
+/*
+ * REDLINE TERMINAL — Home Page
+ * Assembles all sections for PossumXI AI Tutor website
+ * Design: Den of Thieves × Snowden × GraySwan Red Team
  */
+import { useState } from 'react';
+import BootScreen from '@/components/BootScreen';
+import CustomCursor from '@/components/CustomCursor';
+import Navbar from '@/components/Navbar';
+import HeroSection from '@/components/HeroSection';
+import AboutSection from '@/components/AboutSection';
+import SkillsSection from '@/components/SkillsSection';
+import ProjectsSection from '@/components/ProjectsSection';
+import ServicesSection from '@/components/ServicesSection';
+import CommunitySection from '@/components/CommunitySection';
+import BookingSection from '@/components/BookingSection';
+import Footer from '@/components/Footer';
+
 export default function Home() {
-  // If theme is switchable in App.tsx, we can implement theme toggling like this:
-  // const { theme, toggleTheme } = useTheme();
+  const [booted, setBooted] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <main>
-        {/* Example: lucide-react for icons */}
-        <Loader2 className="animate-spin" />
-        Example Page
-        {/* Example: Streamdown for markdown rendering */}
-        <Streamdown>Any **markdown** content</Streamdown>
-        <Button variant="default">Example Button</Button>
-      </main>
-    </div>
+    <>
+      {/* Custom cursor — always on top */}
+      <CustomCursor />
+
+      {/* Boot sequence */}
+      {!booted && <BootScreen onComplete={() => setBooted(true)} />}
+
+      {/* Main site */}
+      <div style={{ opacity: booted ? 1 : 0, transition: 'opacity 0.5s ease' }}>
+        <Navbar />
+        <HeroSection />
+        <AboutSection />
+        <SkillsSection />
+        <ProjectsSection />
+        <ServicesSection />
+        <CommunitySection />
+        <BookingSection />
+        <Footer />
+      </div>
+    </>
   );
 }
