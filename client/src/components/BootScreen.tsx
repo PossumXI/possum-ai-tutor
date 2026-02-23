@@ -24,8 +24,9 @@ export default function BootScreen({ onComplete }: { onComplete: () => void }) {
     let i = 0;
     const interval = setInterval(() => {
       if (i < BOOT_LINES.length) {
-        setLines(prev => [...prev, BOOT_LINES[i]]);
+        const line = BOOT_LINES[i];
         i++;
+        setLines(prev => [...prev, line]);
       } else {
         clearInterval(interval);
         setTimeout(() => {
@@ -65,24 +66,27 @@ export default function BootScreen({ onComplete }: { onComplete: () => void }) {
         }}>
           POSSUMXI_TERMINAL
         </div>
-        {lines.map((line, idx) => (
-          <div
-            key={idx}
-            style={{
-              color: line.startsWith('//') ? '#DC143C' : '#888',
-              fontSize: '0.85rem',
-              lineHeight: 1.8,
-              letterSpacing: '0.05em',
-              ...(line.startsWith('//') ? { 
-                color: '#DC143C', 
-                fontWeight: 700,
-                textShadow: '0 0 10px rgba(220,20,60,0.6)'
-              } : {}),
-            }}
-          >
-            {line || '\u00A0'}
-          </div>
-        ))}
+        {lines.map((line, idx) => {
+          const text = line ?? '';
+          const isComment = text.startsWith('//');
+          return (
+            <div
+              key={idx}
+              style={{
+                color: isComment ? '#DC143C' : '#888',
+                fontSize: '0.85rem',
+                lineHeight: 1.8,
+                letterSpacing: '0.05em',
+                ...(isComment ? {
+                  fontWeight: 700,
+                  textShadow: '0 0 10px rgba(220,20,60,0.6)'
+                } : {}),
+              }}
+            >
+              {text || '\u00A0'}
+            </div>
+          );
+        })}
         {!done && (
           <span style={{ 
             color: '#DC143C', 
