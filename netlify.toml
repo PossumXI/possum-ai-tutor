@@ -1,0 +1,8 @@
+[build]
+  command = "pnpm install --frozen-lockfile=false && pnpm build"
+  publish = "dist/public"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
