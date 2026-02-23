@@ -216,7 +216,7 @@ export default function AboutSection() {
                 GITHUB
               </a>
               <a
-                href="https://www.linkedin.com/in/gaetano-comparcola"
+                href="https://www.linkedin.com/in/gaetano-comparcola-4017041b6"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-outline-red"

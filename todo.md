@@ -1,0 +1,23 @@
+# PossumXI AI Tutor — TODO
+
+- [x] Terminal boot screen with typewriter effect
+- [x] Custom red crosshair cursor with corner brackets
+- [x] Matrix rain canvas animation in hero
+- [x] Navbar with scroll-aware background
+- [x] Hero section with typewriter + CDN hero image
+- [x] About/Dossier section with avatar + stats
+- [x] Skills matrix section
+- [x] Projects section (ASGARD, AI_UI, AROBI)
+- [x] Services/Training Modules section
+- [x] OpenClaw / Friends of Crustacean community section
+- [x] Booking section with Calendly embed
+- [x] Footer with all links
+- [x] Fix LinkedIn URL to correct profile (gaetano-comparcola-4017041b6)
+- [x] Upgrade to full-stack (db + server + user)
+- [x] Reviews database table + migration
+- [x] Reviews tRPC router (list, submit, adminList, approve, delete)
+- [x] Reviews page with submission form + display grid
+- [x] Admin controls on reviews page (approve/delete)
+- [x] Owner notification on new review submission
+- [x] REVIEWS link in navbar
+- [x] Vitest tests for reviews router (11 tests passing)

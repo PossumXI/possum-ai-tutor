@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { label: 'SKILLS', href: '#skills' },
   { label: 'PROJECTS', href: '#projects' },
   { label: 'SERVICES', href: '#services' },
+  { label: 'REVIEWS', href: '/reviews', isPage: true },
   { label: 'BOOK', href: '#book' },
 ];
 
@@ -22,8 +23,12 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const scrollTo = (href: string) => {
+  const navigate = (href: string, isPage?: boolean) => {
     setMobileOpen(false);
+    if (isPage) {
+      window.location.href = href;
+      return;
+    }
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
@@ -75,7 +80,7 @@ export default function Navbar() {
           {NAV_LINKS.map(link => (
             <button
               key={link.label}
-              onClick={() => scrollTo(link.href)}
+              onClick={() => navigate(link.href, link.isPage)}
               className="nav-link"
               style={{ background: 'none', border: 'none' }}
             >
@@ -83,9 +88,9 @@ export default function Navbar() {
             </button>
           ))}
           <button
-            onClick={() => scrollTo('#book')}
-            className="btn-red"
-            style={{ fontSize: '0.75rem', padding: '0.6rem 1.4rem' }}
+            onClick={() => navigate('#book')}
+              className="btn-red"
+              style={{ fontSize: '0.75rem', padding: '0.6rem 1.4rem' }}
           >
             FREE SESSION
           </button>
@@ -122,7 +127,7 @@ export default function Navbar() {
           {NAV_LINKS.map(link => (
             <button
               key={link.label}
-              onClick={() => scrollTo(link.href)}
+              onClick={() => navigate(link.href, link.isPage)}
               className="nav-link"
               style={{ background: 'none', border: 'none', textAlign: 'left' }}
             >
@@ -130,9 +135,9 @@ export default function Navbar() {
             </button>
           ))}
           <button
-            onClick={() => scrollTo('#book')}
-            className="btn-red"
-            style={{ width: 'fit-content' }}
+            onClick={() => navigate('#book')}
+              className="btn-red"
+              style={{ width: 'fit-content' }}
           >
             FREE SESSION
           </button>

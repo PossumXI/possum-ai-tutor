@@ -55,7 +55,7 @@ export default function Footer() {
               </div>
               {[
                 { label: 'GitHub', href: 'https://github.com/PossumXI' },
-                { label: 'LinkedIn', href: 'https://www.linkedin.com/in/gaetano-comparcola' },
+                { label: 'LinkedIn', href: 'https://www.linkedin.com/in/gaetano-comparcola-4017041b6' },
                 { label: 'Aura Genesis', href: 'https://aura-genesis.org' },
                 { label: 'OpenClaw', href: 'https://openclaw.org' },
               ].map(link => (
